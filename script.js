@@ -70,13 +70,13 @@ let start = new Date().getTime()
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
 
-const timerID = setInterval({
+const timerID = setInterval(()=>{
     let end = new Date().getTime()
-    let elapsed = ((end-start)/1000).toFixed(3), 10
+    let elapsed = ((end-start)/1000).toFixed(3)
 
-}
+}, 10)
 
-myTimer.innerHTML = timer
+myTimer.innerHTML = timerID
 // ============================================
 //  PART 3: Start/Stop Toggle Button
 // ============================================
@@ -97,6 +97,12 @@ myBtn.addEventListener('click', ()=> {
         running = false;
     } else {
         let start1 = new Date().getTime()
+        const timerID = setInterval(()=>{
+        let end = new Date().getTime()
+        let elapsed = ((end-start)/1000).toFixed(3)
+        }, 10)
+        myBtn.innerHTML = "Start"
+        running = false;
     }
 })
 // STEP 14: Add a click event listener to the button (ID "myBtn").
