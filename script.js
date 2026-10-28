@@ -16,14 +16,14 @@
 // element with ID "warmUpDate".
 
 // STEP 1: Create a new Date object using: let now = new Date();
-
+let now  = new Date().getDay()
 // STEP 2: Use .getDay() to get the day of the week as a number.
 //         Sunday = 0, Monday = 1, Tuesday = 2, ... Saturday = 6
-
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 // STEP 3: Create an array of day names:
 //         let days = ["Sunday", "Monday", "Tuesday", "Wednesday",
 //                     "Thursday", "Friday", "Saturday"];
-
+warmUpDate.innerHTML = days[now]
 // STEP 4: Use the day number as an index to get the day name
 //         from the array.
 
@@ -39,7 +39,7 @@
 // Example: "4/2/2025" (no leading zeros)
 
 // STEP 6: Create a new Date object (or reuse the one from above).
-
+let date = new Date()
 // STEP 7: Get the month using .getMonth()
 //         IMPORTANT: .getMonth() returns 0–11 (January = 0)
 //         so you must add 1 to get the correct month number.
@@ -50,7 +50,7 @@
 
 // STEP 10: Build the date string: month + "/" + day + "/" + year
 //          Display it in the element with ID "myDate"
-
+myDate.innerHTML = new.getMonth()+1 + "/" + new.getDate() + "/" + new.getFullYear();
 
 // ============================================
 //  PART 2: Elapsed Timer
@@ -61,7 +61,7 @@
 
 // STEP 11: Record the start time using new Date().getTime()
 //          This gives you the current time in milliseconds.
-
+let start = new Date().getTime()
 // STEP 12: Create a variable to hold the timer ID (for stopping later).
 //          Use setInterval() with a delay of 10 milliseconds.
 //          Inside the interval function:
@@ -70,7 +70,13 @@
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
 
+const timerID = setInterval({
+    let end = new Date().getTime()
+    let elapsed = ((end-start)/1000).toFixed(3), 10
 
+}
+
+myTimer.innerHTML = timer
 // ============================================
 //  PART 3: Start/Stop Toggle Button
 // ============================================
@@ -83,7 +89,16 @@
 
 // STEP 13: Create a variable to track whether the timer is
 //          currently running (let running = true;)
-
+let running = true;
+myBtn.addEventListener('click', ()=> {
+    if (running) {
+        timer.clearInterval()
+        myBtn.innerHTML = "Start"
+        running = false;
+    } else {
+        let start1 = new Date().getTime()
+    }
+})
 // STEP 14: Add a click event listener to the button (ID "myBtn").
 //          Inside the listener:
 //          a) If running is true:
