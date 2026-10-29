@@ -99,7 +99,7 @@ myBtn.addEventListener('click', ()=> {
         myBtn.innerHTML = "Start"
         running = false;
     } else {
-        let start1 = new Date().getTime()
+        start = new Date().getTime()
         startTimer()
         myBtn.innerHTML = "Stop"
         running = true;
