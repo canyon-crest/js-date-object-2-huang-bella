@@ -70,14 +70,12 @@ let start = new Date().getTime()
 //          b) Calculate elapsed seconds: (currentTime - startTime) / 1000
 //          c) Display the elapsed time using .toFixed(3)
 //             in the element with ID "myTimer"
-let timerID;
-function startTimer() {
- timerID = setInterval(()=>{
+ let timerID = setInterval(()=>{
     let end = new Date().getTime()
     let elapsed = ((end-start)/1000).toFixed(3)
     myTimer.innerHTML = elapsed
 }, 10)
-}
+
 
 // ============================================
 //  PART 3: Start/Stop Toggle Button
@@ -100,7 +98,11 @@ myBtn.addEventListener('click', ()=> {
         running = false;
     } else {
         start = new Date().getTime()
-        startTimer()
+        timerID = setInterval(()=>{
+        let end = new Date().getTime()
+        let elapsed = ((end-start)/1000).toFixed(3)
+        myTimer.innerHTML = elapsed
+        }, 10)
         myBtn.innerHTML = "Stop"
         running = true;
     }
